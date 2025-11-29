@@ -1,0 +1,1 @@
+Version 1 is expected to open a headless browser -> navigate to a site -> ingest content from a page -> regex it -> write a csv file which populates with three fields (Subject, Start date, Start time)
