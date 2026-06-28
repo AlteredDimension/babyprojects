@@ -1,0 +1,84 @@
+@define-color bg           #24283b;
+@define-color fg           #c0caf5;
+@define-color selection    #555e8f;
+@define-color surface0     #1B1E23;
+@define-color surface1     #444A55;
+@define-color red          #D2556A;
+@define-color green        #4DD0A0;
+@define-color yellow       #FFCE5C;
+@define-color blue         #8d91d9;
+@define-color blue_bright  #B497E8;
+@define-color magenta      #C58AFF;
+@define-color magenta_bright #E8ABFF;
+@define-color cyan         #A78AFF;
+@define-color accent       @magenta;
+@define-color border       alpha(@surface1, 0.5);
+
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    color: @fg;
+}
+
+window#waybar.right_bar {
+    background-color: alpha(@bg, 0.8);
+    border-left: 1px solid @border;
+    padding: 10px 0;
+}
+
+#workspaces,
+#clock.time,
+#clock.calendar,
+#clock.month,
+#custom-separator,
+#custom-notification {
+    background-color: alpha(@surface0, 0.5);
+    border-radius: 8px;
+    margin: 10px 12px;
+    padding: 4px 0;
+}
+
+#clock.time {
+    font-weight: bold;
+    font-size: 15px;
+    color: @fg;
+}
+
+#clock.calendar,
+#clock.month {
+    color: @blue_bright;
+}
+
+#custom-separator {
+    background: none;
+    border: none;
+    margin: -5px 0;
+    color: @surface1;
+}
+
+#workspaces button {
+    padding: 4px 0;
+    margin: 2px 0;
+    color: @fg;
+}
+
+#workspaces button.active {
+    background-color: alpha(@magenta, 0.4);
+    border-radius: 6px;
+    color: @magenta_bright;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@selection, 0.5);
+    border-radius: 6px;
+}
+
+#custom-notification {
+    color: @magenta;
+    font-size: 16px;
+}
+
+#custom-notification:hover {
+    color: @magenta_bright;
+}

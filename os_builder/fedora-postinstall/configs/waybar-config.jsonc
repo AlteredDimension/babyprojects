@@ -1,0 +1,72 @@
+[
+  {
+    "name": "right_bar",
+    "layer": "top",
+    "position": "right",
+    "width": 20,
+    "margin-top": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "exclusive": true,
+    "spacing": 0,
+
+    "modules-left": ["custom/notification", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["clock#time", "custom/separator", "clock#calendar", "clock#month"],
+
+    "clock#time": {
+      "format": "{:%H\n%M}"
+    },
+
+    "custom/separator": {
+      "format": "---",
+      "tooltip": false
+    },
+
+    "clock#calendar": {
+      "format": "{:%a}"
+    },
+
+    "clock#month": {
+      "format": "{:%d}"
+    },
+
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "\ud83d\udd14",
+        "none": "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+
+    "hyprland/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "1": "󰲠",
+        "2": "󰲢",
+        "3": "󰲤",
+        "4": "󰲦",
+        "5": "󰲨",
+        "6": "󰲪",
+        "7": "󰲬",
+        "8": "󰲮",
+        "9": "󰲰",
+        "special": "",
+        "default": ""
+      },
+      "show-special": true,
+      "all-outputs": true,
+      "ignore-workspaces": ["^[1-9][0-9]+$"]
+    }
+  }
+]

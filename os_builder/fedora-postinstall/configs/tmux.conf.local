@@ -1,0 +1,20 @@
+# Oh My Tmux — local overrides
+# See https://github.com/gpakosz/.tmux for all options
+
+# 24-hour clock
+set -g clock-mode-style 24
+
+# Mouse support
+set -g mouse on
+
+# Start windows/panes at 1
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+# Scrollback
+set -g history-limit 10000
+
+# True color
+set -g default-terminal "screen-256color"
+set -as terminal-features ",xterm-256color:RGB"

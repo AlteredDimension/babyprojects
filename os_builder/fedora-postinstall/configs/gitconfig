@@ -1,0 +1,10 @@
+[user]
+	name = alt
+	email = altereddimension@protonmail.com
+
+[init]
+	defaultBranch = nexus
+
+[core]
+	editor = nvim
+	excludesFile = ~/.gitignore

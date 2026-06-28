@@ -1,0 +1,240 @@
+/*
+ * Color Palette - Unified with Kitty terminal
+ *
+ * Base colors:
+ *   background:  #24283b
+ *   foreground:  #c0caf5
+ *   selection:   #555e8f
+ *
+ * ANSI colors:
+ *   black:       #1B1E23 / #444A55
+ *   red:         #D2556A / #FF7B9C
+ *   green:       #4DD0A0 / #89EFC9
+ *   yellow:      #FFCE5C / #FFE799
+ *   blue:        #8d91d9 / #B497E8
+ *   magenta:     #C58AFF / #E8ABFF
+ *   cyan:        #A78AFF / #CDA6FF
+ *   white:       #E8E8E8 / #FFFFFF
+ */
+
+/* Base */
+@define-color bg           #24283b;
+@define-color fg           #c0caf5;
+@define-color selection    #555e8f;
+
+/* Surfaces */
+@define-color surface0     #1B1E23;
+@define-color surface1     #444A55;
+
+/* Accent colors */
+@define-color red          #D2556A;
+@define-color red_bright   #FF7B9C;
+@define-color green        #4DD0A0;
+@define-color green_bright #89EFC9;
+@define-color yellow       #FFCE5C;
+@define-color yellow_bright #FFE799;
+@define-color blue         #8d91d9;
+@define-color blue_bright  #B497E8;
+@define-color magenta      #C58AFF;
+@define-color magenta_bright #E8ABFF;
+@define-color cyan         #A78AFF;
+@define-color cyan_bright  #CDA6FF;
+
+/* Semantic aliases */
+@define-color accent       @magenta;
+@define-color border       alpha(@surface1, 0.5);
+@define-color subtle       @surface1;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    color: @fg;
+}
+
+.control-center {
+    background-color: alpha(@bg, 0.92);
+    border: 1px solid @border;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.notification-row {
+    outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: alpha(@selection, 0.6);
+    border-radius: 10px;
+}
+
+.notification {
+    background-color: alpha(@surface0, 0.8);
+    border-radius: 10px;
+    border: 1px solid @border;
+    margin: 4px 0;
+    padding: 8px;
+}
+
+.notification-content {
+    padding: 4px;
+}
+
+.notification-default-action {
+    border-radius: 10px;
+}
+
+.close-button {
+    background: alpha(@red, 0.3);
+    color: @red;
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+
+.close-button:hover {
+    background: alpha(@red, 0.5);
+}
+
+.widget-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: @blue_bright;
+    margin: 4px 8px;
+}
+
+.widget-title > button {
+    background: alpha(@surface0, 0.6);
+    border: 1px solid @border;
+    border-radius: 8px;
+    padding: 4px 12px;
+    color: @fg;
+}
+
+.widget-title > button:hover {
+    background: alpha(@magenta, 0.3);
+}
+
+/* Buttons grid */
+.widget-buttons-grid {
+    margin: 8px;
+    padding: 4px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: alpha(@surface0, 0.6);
+    border: 1px solid @border;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 4px;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 18px;
+    color: @fg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: alpha(@magenta, 0.3);
+    border-color: @magenta;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+    background: alpha(@magenta, 0.5);
+}
+
+/* Volume widget */
+.widget-volume {
+    background: alpha(@surface0, 0.6);
+    border-radius: 10px;
+    border: 1px solid @border;
+    margin: 4px 8px;
+    padding: 8px 12px;
+}
+
+.widget-volume > box > button {
+    background: transparent;
+    border: none;
+    color: @cyan;
+    font-size: 16px;
+    padding: 4px 8px;
+}
+
+.widget-volume > box > button:hover {
+    background: alpha(@cyan, 0.2);
+    border-radius: 6px;
+}
+
+/* Slider */
+scale {
+    padding: 4px 0;
+}
+
+scale trough {
+    background: alpha(@surface0, 0.8);
+    border-radius: 6px;
+    min-height: 8px;
+}
+
+scale highlight {
+    background: @magenta;
+    border-radius: 6px;
+}
+
+scale slider {
+    background: @fg;
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* DND widget */
+.widget-dnd {
+    margin: 4px 8px;
+    padding: 4px;
+}
+
+.widget-dnd > switch {
+    background: alpha(@surface0, 0.8);
+    border-radius: 12px;
+    border: 1px solid @border;
+}
+
+.widget-dnd > switch:checked {
+    background: alpha(@magenta, 0.4);
+}
+
+.widget-dnd > switch slider {
+    background: @fg;
+    border-radius: 50%;
+}
+
+/* MPRIS widget */
+.widget-mpris {
+    background: alpha(@surface0, 0.6);
+    border-radius: 10px;
+    border: 1px solid @border;
+    margin: 4px 8px;
+    padding: 8px;
+}
+
+.widget-mpris-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+    color: @subtle;
+    font-size: 12px;
+}
+
+.widget-mpris > box > button {
+    background: alpha(@surface0, 0.8);
+    border: 1px solid @border;
+    border-radius: 8px;
+    padding: 6px;
+    margin: 2px;
+    color: @fg;
+}
+
+.widget-mpris > box > button:hover {
+    background: alpha(@magenta, 0.3);
+}

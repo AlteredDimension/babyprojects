@@ -1,0 +1,31 @@
+# Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="jonathan"
+plugins=(
+    git
+    sudo
+    docker
+    kubectl
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+source $ZSH/oh-my-zsh.sh
+
+# Key timeout
+export KEYTIMEOUT=1
+
+# Editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Aliases
+alias vi="nvim"
+alias yank="wl-copy"
+alias night="systemctl hibernate"
+alias cya="shutdown now"
+
+# SSH shortcuts
+alias pwntime="ssh -i /home/alt/.ssh/pwn_key hacker@dojo.pwn.college"
+
+# Direnv
+eval "$(direnv hook zsh)"
