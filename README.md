@@ -22,7 +22,7 @@ scripts
 
 ## overview
 
-these are just some of the scripts that I'm running that are more than just simple functions but not blown out to deserve their own repo. i'll run through a quick description of each one of them
+theres 2 primary categories - offensive tooling and productivity tools. notable productivity tools include a keepass tui, os start-up + app install runthrough, and a VM manager tui (for virsh and virt-viewer).
 
 ## scripts
 
