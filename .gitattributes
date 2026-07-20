@@ -1,0 +1,3 @@
+productivity_tools/os_builder/ARCH_SYSTEM_README.md filter=git-crypt diff=git-crypt
+productivity_tools/os_builder/complete_arch_run.sh filter=git-crypt diff=git-crypt
+productivity_tools/os_builder/fedora-postinstall/arch-install.sh filter=git-crypt diff=git-crypt
