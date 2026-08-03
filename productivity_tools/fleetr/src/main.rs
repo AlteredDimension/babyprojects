@@ -1,5 +1,4 @@
 use std::{env, fs, process::Command};
-use asky::MultiSelect;
 
 struct Selections {
     statuses: Vec<String>,
@@ -14,8 +13,13 @@ fn request_selection() -> Selections {
     let home = env::var("HOME").expect("couldn't find HOME env var");
     let ssh_config_file = format!("{home}/.ssh/config");
 
-    let status_answer = MultiSelect::new(status_prompt, status_options)
-        .prompt()
+    let status_items: Vec<(String, &str, &str)> = status_options
+        .iter()
+        .map(|opt| (opt.to_string(), *opt, ""))
+        .collect();
+    let statuses = cliclack::multiselect(status_prompt)
+        .items(&status_items)
+        .interact()
         .expect("couldn't get status selection :(");
 
     let machine_list: Vec<String> = fs::read_to_string(&ssh_config_file)
@@ -25,16 +29,16 @@ fn request_selection() -> Selections {
         .map(|line| line.trim_start()[5..].trim().to_string())
         .collect();
 
-    // asky needs &str items, so borrow from machine_list rather than moving it
-    let machine_refs: Vec<&str> = machine_list.iter().map(|s| s.as_str()).collect();
-    let machine_answer = MultiSelect::new(machine_prompt, machine_refs)
-        .prompt()
+    let machine_items: Vec<(String, String, &str)> = machine_list
+        .iter()
+        .map(|m| (m.clone(), m.clone(), ""))
+        .collect();
+    let machines = cliclack::multiselect(machine_prompt)
+        .items(&machine_items)
+        .interact()
         .expect("couldn't get machines :/");
 
-    Selections {
-        statuses: status_answer.into_iter().map(String::from).collect(),
-        machines: machine_answer.into_iter().map(String::from).collect(),
-    }
+    Selections { statuses, machines }
 }
 
 fn check_battery(machines: &[String]) -> Vec<(String, Result<String, String>)> {
