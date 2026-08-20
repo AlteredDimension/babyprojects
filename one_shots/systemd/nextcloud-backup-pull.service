@@ -1,0 +1,7 @@
+[Unit]
+Description=Pull staged Nextcloud backup from portal
+Wants=network-online.target
+After=network-online.target tailscaled.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/nextcloud-backup-pull.sh

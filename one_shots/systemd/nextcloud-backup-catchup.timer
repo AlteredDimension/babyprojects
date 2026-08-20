@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily catch-up pull of Nextcloud backup if Sunday run was missed
+[Timer]
+OnCalendar=*-*-* 12:00:00
+OnBootSec=10min
+Persistent=true
+Unit=nextcloud-backup-pull.service
+[Install]
+WantedBy=timers.target

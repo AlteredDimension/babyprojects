@@ -1,0 +1,9 @@
+[Unit]
+Description=Wake desktop from suspend Sunday 01:58 to pull Nextcloud backup
+[Timer]
+OnCalendar=Sun *-*-* 01:58:00
+WakeSystem=true
+Persistent=true
+Unit=nextcloud-backup-pull.service
+[Install]
+WantedBy=timers.target
